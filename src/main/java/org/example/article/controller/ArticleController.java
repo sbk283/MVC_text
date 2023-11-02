@@ -32,19 +32,18 @@ public class ArticleController {
         for (Article article : articleList) {
             System.out.printf("%d, %s, %s\n", article.getId(), article.getTitle(), article.getContent());
         }
-        System.out.println("");
     }
 
     public void remove() {
-        List<Article> articleList = articleService.getArticleListAll();
-        if (articleList.isEmpty()) {
-            System.out.println("등록된 게시글이 없습니다.");
-            return;
-        }
         System.out.print("삭제하실 번호를 입력해주세요. >> ");
         long removeId = Long.parseLong(Container.getSc().nextLine().trim());
 
         Article article = this.articleService.getArticleFindById(removeId);
+
+        if (article == null) {
+            System.out.println("등록된 게시글이 없습니다.");
+            return;
+        }
 
         articleService.remove(article);
 
@@ -52,15 +51,15 @@ public class ArticleController {
     }
 
     public void modify() {
-        List<Article> articleList = articleService.getArticleListAll();
-        if (articleList.isEmpty()) {
-            System.out.println("등록된 게시글이 없습니다.");
-            return;
-        }
         System.out.print("수정하실 번호를 입력해주세요. >> ");
         long modifyId = Long.parseLong(Container.getSc().nextLine().trim());
 
         Article article = this.articleService.getArticleFindById(modifyId);
+
+        if (article == null) {
+            System.out.println("등록된 게시글이 없습니다.");
+            return;
+        }
 
         System.out.println("기존 제목 : " + article.getTitle());
         System.out.print("수정할 제목 : ");
