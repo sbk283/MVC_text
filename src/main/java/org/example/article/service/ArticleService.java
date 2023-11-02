@@ -1,7 +1,7 @@
 package org.example.article.service;
 
 import org.example.article.entity.Article;
-import org.example.member.repository.ArticleRepository;
+import org.example.article.repository.ArticleRepository;
 
 import java.util.ArrayList;
 import java.util.List;

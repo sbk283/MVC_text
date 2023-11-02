@@ -1,4 +1,4 @@
-package org.example.member.repository;
+package org.example.article.repository;
 
 import org.example.article.entity.Article;
 
